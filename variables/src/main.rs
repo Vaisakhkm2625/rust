@@ -1,29 +1,42 @@
-use std::{io, process};
-use String;
+use std::io;
 
 fn main() {
-    let a: u8 = 254;
+    //arrays
+    //
+    let months: [&str; 12] = [
+        "january",
+        "february",
+        "march",
+        "april",
+        "may",
+        "june",
+        "july",
+        "august",
+        "september",
+        "october",
+        "november",
+        "december",
+    ];
+
+    // let tenstrings = ["geetha"; 10];
+
+    // for i in months {
+    //     println!("{}", i);
+    // }
+
+    // for i in tenstrings {
+    //     println!("{}", i);
+    // }
 
     let mut inp = String::new();
 
     io::stdin()
         .read_line(&mut inp)
-        .expect("Failed to read line");
+        .expect("unable to get input");
 
-    // let inp: u8 = inp.trim().parse().expect("input a number");
-    let inp: u8 = match inp.trim().parse() {
-        Ok(number) => number,
-        Err(_) => {
-            println!("Enter a integer");
-            process::exit(0x0100); 
-            // ^this will exit program on wrong input than returning a int to inp
-        }
-    };
+    let inp:usize = inp.trim().parse().expect("not a number");
 
-
-    let a: u8 = a + inp;
-
-    println!("{}", a);
+    println!("{}", months[inp]);
 }
 
 // let mut x = 5;
@@ -45,3 +58,23 @@ fn main() {
 // let spaces = spaces.len();
 
 // println!("length : {}",spaces);
+//
+//     let a: f32 = 0.3;
+//     let b  = 0.2;
+
+//    println!("0.3 + 0.2 = {}", a + b);
+// // boolean
+// let t: bool = true;
+// let f: bool = false;
+// println!("{} and {}",t,f);
+
+// //tuple
+//
+// let tup = (10,10.3);
+// // let tup: (i32,f64) = (10,10.3); // declaring types
+
+// let (a,b) = tup;
+
+// //println!("tuple {}", tup); // cannot print a tuple
+// println!("a -\t{}\nb -\t{}", a,b);
+// println!("tup.0 - \t{}\ntup.1 -\t{}", tup.0,tup.1);
